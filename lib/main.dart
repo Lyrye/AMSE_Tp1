@@ -1,4 +1,3 @@
-//import 'dart:html';
 
 import 'package:flutter/material.dart';
 
@@ -25,10 +24,7 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
-
-
   final String title;
-
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -39,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
   TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
     Text(
-      'Index 0: Home',
+      'Home',
       style: optionStyle,
     ),
     Text(
@@ -48,6 +44,10 @@ class _MyHomePageState extends State<MyHomePage> {
     ),
     Text(
       'Mes Jeux Vidéo',
+      style: optionStyle,
+    ),
+    Text(
+      'Informations',
       style: optionStyle,
     ),
   ];
@@ -71,18 +71,29 @@ class _MyHomePageState extends State<MyHomePage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
+            backgroundColor: Colors.blue
+
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.ondemand_video_rounded ),
             label: 'Séries & Films',
+            backgroundColor: Colors.blue
+
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.videogame_asset_outlined),
             label: 'Jeux Vidéo',
+            backgroundColor: Colors.blue
+
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.info_outline_rounded ),
+            label: 'Informtations',
+            backgroundColor: Colors.blue
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: Colors.white,
         onTap: _onItemTapped,),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
