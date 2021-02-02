@@ -1,5 +1,8 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mediateque_tp1/Widget3000.dart';
+import 'package:mediateque_tp1/Media.dart';
 
 void main() {
   runApp(MyApp());
@@ -33,23 +36,40 @@ class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
   TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
+  final List<String> entries = <String>['A', 'B', 'C'];
+  final List<int> colorCodes = <int>[600, 500, 100];
+  static Widget3000 affichage=new Widget3000();
+
+  static Widget listViewPage()
+  {
+    return ListView.builder(
+        padding: const EdgeInsets.all(8),
+        itemCount: 1,
+        itemBuilder: (BuildContext context, int index) {
+          return Container(
+            child: GridView.count(
+              crossAxisCount: 2,
+              children: [
+                Text("Bonjour"),
+                Text("hdkldas")],)
+
+    );});
+  }
+
+  static  List<Widget> _widgetOptions = <Widget>[
+    affichage.getThisFuckingWidget() ,
     Text(
-      'Home',
+      'Index 1: Business',
       style: optionStyle,
     ),
     Text(
-      'Mes Séries et Films',
+      'Index 2: School',
       style: optionStyle,
     ),
-    Text(
-      'Mes Jeux Vidéo',
+    Text (
+      'Mes favoris',
       style: optionStyle,
-    ),
-    Text(
-      'Informations',
-      style: optionStyle,
-    ),
+    )
   ];
 
   void _onItemTapped(int index) {
@@ -57,9 +77,11 @@ class _MyHomePageState extends State<MyHomePage> {
       _selectedIndex = index;
     });
   }
+
   @override
   Widget build(BuildContext context) {
-    final series=[MediaItem(name: "Les Simpsons",description: "Les simpsons", image: "https://fr.wikipedia.org/wiki/Les_Simpson#/media/Fichier:Les_simpson_logo_France.png")];
+    final List<MediaItem> series= <MediaItem> [];
+
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -87,10 +109,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.info_outline_rounded ),
-            label: 'Informtations',
-            backgroundColor: Colors.blue
+              icon: Icon(Icons.favorite_border_rounded),
+              label: 'Mes favoris',
+              backgroundColor: Colors.blue
           ),
+
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.white,
@@ -100,17 +123,12 @@ class _MyHomePageState extends State<MyHomePage> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+
+
 }
 
-class MediaItem {
-  String name;
-  String description;
-  String image;
 
-  MediaItem({this.name, this.description,this.image});
-  String getName ()
-  {
-   return this.name ;
-  }
-}
+
+
+
 
