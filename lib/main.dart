@@ -57,12 +57,11 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   static  List<Widget> _widgetOptions = <Widget>[
-    affichage.getThisFuckingWidget() ,
     Text(
-      'Index 1: Business',
-      style: optionStyle,
+      'Home',
     ),
-    Text(
+    affichage.getThisFuckingWidget(),
+  Text(
       'Index 2: School',
       style: optionStyle,
     ),
