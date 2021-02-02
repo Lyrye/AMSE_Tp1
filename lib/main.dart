@@ -1,8 +1,11 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mediateque_tp1/Widget3000.dart';
 import 'package:mediateque_tp1/Media.dart';
+
+import 'Widget3000.dart';
 
 void main() {
   runApp(MyApp());
@@ -38,7 +41,11 @@ class _MyHomePageState extends State<MyHomePage> {
   TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   final List<String> entries = <String>['A', 'B', 'C'];
   final List<int> colorCodes = <int>[600, 500, 100];
-  static Widget3000 affichage=new Widget3000();
+  static DataBase db = new DataBase();
+
+  static Widget3000 affichageSeries =new Widget3000(db.getlistSeries());
+  static Widget3000 affichageGames =new Widget3000(db.getlistGames());
+
 
   static Widget listViewPage()
   {
@@ -57,14 +64,9 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   static  List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Home',
-    ),
-    affichage.getThisFuckingWidget(),
-  Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
+    Text("Bienvenue dans votre Médiathèque",textAlign: TextAlign.center, style: GoogleFonts.montserrat(textStyle: TextStyle(fontSize: 40,color: Colors.blue))),
+    affichageSeries.getThisFuckingWidget(),
+    affichageGames.getThisFuckingWidget(),
     Text (
       'Mes favoris',
       style: optionStyle,

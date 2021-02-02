@@ -6,8 +6,7 @@ class Widget3000{
   Widget view;
   MediaItem mediaItem ;
 
-  Widget3000(){
-    DataBase db = new DataBase();
+  Widget3000(List <ListView> list){
 
     view= Column(
         children: [Expanded(
@@ -15,12 +14,12 @@ class Widget3000{
               scrollDirection: Axis.vertical,
               shrinkWrap: true,
               padding: const EdgeInsets.all(8),
-              itemCount: db.getlist().length,
+              itemCount: list.length,
               itemBuilder: (BuildContext context, int index)
               {
                 return Container(
                     height: 250,
-                    child: Center(child: db.getlist()[index]));
+                    child: Center(child: list[index]));
               })
         )
       ]
