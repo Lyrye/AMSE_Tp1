@@ -11,31 +11,20 @@ class Widget3000{
 
     view= Column(
         children: [Expanded(
-        child:ListView.builder(
-            scrollDirection: Axis.vertical,
-            shrinkWrap: true,
-            padding: const EdgeInsets.all(8),
-            itemCount: db.getlist().length,
-            itemBuilder: (BuildContext context, int index)
-            {
-              return Container(
-                  height: 250,
-                  child: Center(child: db.getlist()[index]));
-            }))]);
-
-    /*
-        ListView.builder(
-          padding: const EdgeInsets.all(8),
-          itemCount: 1,
-          itemBuilder: (BuildContext context, int index) {
-            return Container(
-                child: GridView.count(
-                  crossAxisCount: 2,
-                  children: [
-                    Text("Bonjour"),
-                    Text("hdkldas")],)
-            );});
-    */
+          child:ListView.builder(
+              scrollDirection: Axis.vertical,
+              shrinkWrap: true,
+              padding: const EdgeInsets.all(8),
+              itemCount: db.getlist().length,
+              itemBuilder: (BuildContext context, int index)
+              {
+                return Container(
+                    height: 250,
+                    child: Center(child: db.getlist()[index]));
+              })
+        )
+      ]
+    );
   }
 
   Widget getThisFuckingWidget(){return view;}
