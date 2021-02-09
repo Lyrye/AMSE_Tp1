@@ -6,8 +6,9 @@ class Widget3000{
   Widget view;
   MediaItem mediaItem ;
 
-  Widget3000(List <ListView> list){
 
+
+  Widget3000(List <ListView> list){
     view= Column(
         children: [Expanded(
           child:ListView.builder(
@@ -18,7 +19,7 @@ class Widget3000{
               itemBuilder: (BuildContext context, int index)
               {
                 return Container(
-                    height: 250,
+                    height: 300,
                     child: Center(child: list[index]));
               })
         )
@@ -28,4 +29,25 @@ class Widget3000{
 
   Widget getThisFuckingWidget(){return view;}
 
+}
+
+
+
+class Description extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Fiche d'information"),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: Text('Retour à la liste'),
+        ),
+      ),
+    );
+  }
 }

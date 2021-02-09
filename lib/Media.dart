@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -9,6 +10,8 @@ class MediaItem  {
   String name;
   String description;
   String image;
+
+  final _saved = Set<MediaItem>();
 
 
 
@@ -30,12 +33,18 @@ class MediaItem  {
   {
     const TextStyle titleStyle = TextStyle(fontSize: 30,fontWeight: FontWeight.bold, color: Colors.blue);
     const TextStyle bodyStyle = TextStyle(fontSize: 11);
+    final alreadySaved = _saved.contains(MediaItem);
+
     return ListView(
       shrinkWrap: true,
       physics: new NeverScrollableScrollPhysics(),
       children: [
-        Align( alignment: Alignment.center,
-            child: Text(item.name, style: GoogleFonts.montserrat(textStyle: titleStyle),textAlign: TextAlign.center,)),
+        ListTile(
+          title: Text(item.name, style: GoogleFonts.montserrat(textStyle: titleStyle),textAlign: TextAlign.center,),
+          trailing: Icon(
+            alreadySaved ? Icons.favorite : Icons.favorite_border,
+            color: alreadySaved ? Colors.red : null,
+          ),),
         GridView.count(
             crossAxisCount: 2,
             physics: new NeverScrollableScrollPhysics(),
@@ -44,7 +53,7 @@ class MediaItem  {
               Image.asset(item.image),
               Align( alignment: Alignment.center,
                   child:Text(item.description, style:GoogleFonts.montserrat(textStyle: bodyStyle), textAlign: TextAlign.justify, )),
-            ])
+            ]),
       ],
     );
   }

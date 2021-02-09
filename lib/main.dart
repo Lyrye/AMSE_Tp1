@@ -47,22 +47,6 @@ class _MyHomePageState extends State<MyHomePage> {
   static Widget3000 affichageGames =new Widget3000(db.getlistGames());
 
 
-  static Widget listViewPage()
-  {
-    return ListView.builder(
-        padding: const EdgeInsets.all(8),
-        itemCount: 1,
-        itemBuilder: (BuildContext context, int index) {
-          return Container(
-            child: GridView.count(
-              crossAxisCount: 2,
-              children: [
-                Text("Bonjour"),
-                Text("hdkldas")],)
-
-    );});
-  }
-
   static  List<Widget> _widgetOptions = <Widget>[
     Text("Bienvenue dans votre Médiathèque",textAlign: TextAlign.center, style: GoogleFonts.montserrat(textStyle: TextStyle(fontSize: 40,color: Colors.blue))),
     affichageSeries.getThisFuckingWidget(),
