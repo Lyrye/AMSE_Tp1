@@ -43,14 +43,14 @@ class _MyHomePageState extends State<MyHomePage> {
   final List<int> colorCodes = <int>[600, 500, 100];
   static DataBase db = new DataBase();
 
-  static Widget3000 affichageSeries =new Widget3000(db.getlistSeries());
-  static Widget3000 affichageGames =new Widget3000(db.getlistGames());
+  static Widget3000 affichageSeries =new Widget3000(list: db.getlistSeries());
+  static Widget3000 affichageGames ;//=new Widget3000(list: db.getlistGames());
 
 
   static  List<Widget> _widgetOptions = <Widget>[
     Text("Bienvenue dans votre Médiathèque",textAlign: TextAlign.center, style: GoogleFonts.montserrat(textStyle: TextStyle(fontSize: 40,color: Colors.blue))),
-    affichageSeries.getThisFuckingWidget(),
-    affichageGames.getThisFuckingWidget(),
+    affichageSeries,
+    affichageGames,
     Text (
       'Mes favoris',
       style: optionStyle,
@@ -94,7 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.favorite_border_rounded),
+              icon: Icon(Icons.star_outline_outlined),
               label: 'Mes favoris',
               backgroundColor: Colors.blue
           ),
@@ -103,9 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.white,
         onTap: _onItemTapped,),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+       // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 
