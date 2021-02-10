@@ -43,18 +43,16 @@ class _MyHomePageState extends State<MyHomePage> {
   final List<int> colorCodes = <int>[600, 500, 100];
   static DataBase db = new DataBase();
 
-  static Widget3000 affichageSeries =new Widget3000(list: db.getlistSeries());
-  static Widget3000 affichageGames ;//=new Widget3000(list: db.getlistGames());
+  static Widget3000 affichageSeries =new Widget3000(list: db.getlistSeries(),list_fav: db.getlistSaved());
+  static Widget3000 affichageGames =new Widget3000(list: db.getlistGames(),list_fav: db.getlistSaved());
+  static Widget3000 affichageFav =new Widget3000(list: db.getlistSaved(),list_fav: db.getlistSaved());
 
 
   static  List<Widget> _widgetOptions = <Widget>[
     Text("Bienvenue dans votre Médiathèque",textAlign: TextAlign.center, style: GoogleFonts.montserrat(textStyle: TextStyle(fontSize: 40,color: Colors.blue))),
     affichageSeries,
     affichageGames,
-    Text (
-      'Mes favoris',
-      style: optionStyle,
-    )
+    affichageFav
   ];
 
   void _onItemTapped(int index) {

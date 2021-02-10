@@ -11,9 +11,6 @@ class MediaItem  {
   String description;
   String image;
 
-
-
-
   String getName() {
     return this.name;
   }
@@ -26,49 +23,6 @@ class MediaItem  {
     return this.image;
   }
 
-
- /* ListView mediaDisplay(MediaItem item) {
-    const TextStyle titleStyle = TextStyle(
-        fontSize: 30, fontWeight: FontWeight.bold, color: Colors.blue);
-    const TextStyle bodyStyle = TextStyle(fontSize: 11);
-    final alreadySaved = _saved.contains(MediaItem);
-
-    return ListView(
-      shrinkWrap: true,
-      physics: new NeverScrollableScrollPhysics(),
-      children: [
-        ListTile(
-          title: Text(
-            item.name, style: GoogleFonts.montserrat(textStyle: titleStyle),
-            textAlign: TextAlign.center,),
-          trailing: Icon(
-              alreadySaved ? Icons.favorite : Icons.favorite_border,
-              color: alreadySaved ? Colors.red : null),
-          onTap: () {
-            setState(() {
-              if (alreadySaved) {
-                _saved.remove(item);
-              } else {
-                _saved.add(item);
-              }
-            });
-          },
-        ),
-        GridView.count(
-            crossAxisCount: 2,
-            physics: new NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            children: [
-              Image.asset(item.image),
-              Align(alignment: Alignment.center,
-                  child: Text(item.description,
-                    style: GoogleFonts.montserrat(textStyle: bodyStyle),
-                    textAlign: TextAlign.justify,)),
-            ]),
-      ],
-    );
-  }*/
-
   MediaItem(String name, String desc, String image) {
     this.name = name;
     this.description = desc;
@@ -77,25 +31,27 @@ class MediaItem  {
 }
 class DataBase
 {
-  static List <MediaItem> _listSeries= <MediaItem>[];
+  static List <MediaItem> listSeries= <MediaItem>[];
   static List <MediaItem> _listGames = <MediaItem>[];
+  static List  _saved = List <MediaItem>();
+
 
   DataBase()
   {
-    _listSeries.add(MediaItem(
+    listSeries.add(MediaItem(
         "LES SIMPSON",
         "Les Simpson, famille américaine moyenne, vivent à Springfield. Homer, le père, a deux passions : regarder la télé et boire des bières. Mais son quotidien est rarement reposant, entre son fils Bart qui fait toutes les bêtises possibles, sa fille Lisa qui est une surdouée, ou encore sa femme Marge qui ne supporte pas de le voir se soûler à longueur de journée.",
         "assets/images/lesSimpson.jpg"));
-    _listSeries.add((MediaItem(
+    listSeries.add((MediaItem(
         "DARK",
         "Un enfant disparu lance quatre familles dans une quête éperdue pour trouver des réponses. La chasse au coupable fait émerger les péchés et les secrets d'une petite ville.",
         "assets/images/dark.jpg")));
-    _listSeries.add((MediaItem(
+    listSeries.add((MediaItem(
         "PEAKY BLINDERS",
         "Birmingham, en 1919. Un gang familial règne sur un quartier de la ville : les Peaky Blinders, ainsi nommés pour les lames de rasoir qu'ils cachent dans la visière de leur casquette.",
         "assets/images/peakyBlinders.jpg")));
 
-    _listSeries.add((MediaItem(
+    listSeries.add((MediaItem(
         "BLACK MIRROR",
         "Chaque épisode de cette anthologie montre la dépendance des hommes vis-à-vis de tout ce qui a un écran...",
         'assets/images/blackmirror.jpg')));
@@ -117,11 +73,15 @@ class DataBase
 
   List <MediaItem> getlistSeries()
   {
-    return _listSeries;
+    return listSeries;
   }
   List <MediaItem> getlistGames()
   {
     return _listGames;
+  }
+  List <MediaItem> getlistSaved()
+  {
+    return _saved;
   }
 
 }
