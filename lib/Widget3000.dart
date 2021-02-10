@@ -21,7 +21,7 @@ class _Widget3000State extends State<Widget3000> {
   _Widget3000State(): super();
 
   ListView mediaDisplay(MediaItem item) {
-    const TextStyle titleStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.blue);
+    const TextStyle titleStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
     const TextStyle bodyStyle = TextStyle(fontSize: 11);
     bool alreadySaved = widget.list_fav.contains(item);
 
@@ -31,11 +31,11 @@ class _Widget3000State extends State<Widget3000> {
       children: [
         ListTile(
           title: Text(
-            item.name, style: GoogleFonts.montserrat(textStyle: titleStyle),
+            item.name, style: GoogleFonts.montserrat(textStyle: titleStyle, color:  Colors.deepPurple[300]),
             textAlign: TextAlign.center,),
           trailing: Icon(
               alreadySaved ? Icons.star_outlined : Icons.star_outlined,
-              color: alreadySaved ? Colors.yellow : Colors.grey),
+              color: alreadySaved ? Colors.deepPurple : Colors.grey),
               onTap: () {
                 setState(() {
                   if (alreadySaved) {
@@ -56,7 +56,7 @@ class _Widget3000State extends State<Widget3000> {
               Image.asset(item.image),
               Align(alignment: Alignment.center,
                   child: Text(item.description,
-                    style: GoogleFonts.montserrat(textStyle: bodyStyle),
+                    style: GoogleFonts.montserrat(textStyle: bodyStyle, color: Colors.black),
                     textAlign: TextAlign.justify,)),
             ]),
       ],
@@ -88,7 +88,7 @@ class _Widget3000State extends State<Widget3000> {
                 itemBuilder: (BuildContext context, int index)
                 {
                   return Container(
-                      height: 300,
+                      height: 250,
                       child: Center(child: _list[index]));
                 })
         ),

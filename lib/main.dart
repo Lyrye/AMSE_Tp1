@@ -7,6 +7,8 @@ import 'package:mediateque_tp1/Media.dart';
 
 import 'Widget3000.dart';
 
+const Color myColor = Color(0xFFCE93D8);
+
 void main() {
   runApp(MyApp());
 }
@@ -19,11 +21,14 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
 
-        primarySwatch: Colors.blue,
+        primaryColor: Colors.deepPurple[200],
+        accentColor: Colors.orange[50],
+
+        //primarySwatch: Colors.deepOrange.shade50,
 
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Mediathèque'),
+      home: MyHomePage(title: 'Mediathèque',),
     );
   }
 }
@@ -38,9 +43,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
-  TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  final List<String> entries = <String>['A', 'B', 'C'];
-  final List<int> colorCodes = <int>[600, 500, 100];
+  TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.white) ;
+
   static DataBase db = new DataBase();
 
   static Widget3000 affichageSeries =new Widget3000(list: db.getlistSeries(),list_fav: db.getlistSaved());
@@ -49,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
   static  List<Widget> _widgetOptions = <Widget>[
-    Text("Bienvenue dans votre Médiathèque",textAlign: TextAlign.center, style: GoogleFonts.montserrat(textStyle: TextStyle(fontSize: 40,color: Colors.blue))),
+    Text("Bienvenue dans votre Médiathèque",textAlign: TextAlign.center, style: GoogleFonts.montserrat(textStyle: TextStyle(fontSize: 40,color: Colors.deepPurple[400]))),
     affichageSeries,
     affichageGames,
     affichageFav
@@ -67,34 +71,34 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(widget.title, style: GoogleFonts.montserrat(color: Colors.white)),
       ),
       body: Center(child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
+        items:  <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
-            backgroundColor: Colors.blue
+            backgroundColor: Colors.deepPurple[200]
 
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.ondemand_video_rounded ),
             label: 'Séries & Films',
-            backgroundColor: Colors.blue
+            backgroundColor: Colors.deepPurple[200]
 
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.videogame_asset_outlined),
             label: 'Jeux Vidéo',
-            backgroundColor: Colors.blue
+            backgroundColor: Colors.deepPurple[200]
 
           ),
           BottomNavigationBarItem(
               icon: Icon(Icons.star_outline_outlined),
               label: 'Mes favoris',
-              backgroundColor: Colors.blue
+              backgroundColor: Colors.deepPurple[200]
           ),
 
         ],

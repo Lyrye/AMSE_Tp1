@@ -67,7 +67,7 @@ class DataBase
         "assets/images/mk8.jpg")));
     _listGames.add((MediaItem(
         "The Legend of Zelda: Breath of the wild",
-        "Oubliez tout ce que vous savez sur les jeux The Legend of Zelda. Plongez dans un monde de découverte, d'exploration et d'aventure dans The Legend of Zelda: Breath of the Wild, un nouveau jeu qui vient bouleverser la série à succès. Voyagez à travers champs, traversez des forêts et grimpez sur des sommets dans votre périple où vous explorez le royaume d'Hyrule en ruines à travers cette aventure à ciel ouvert.",
+        "Plongez dans un monde de découverte, d'exploration et d'aventure dans The Legend of Zelda: Breath of the Wild, un nouveau jeu qui vient bouleverser la série à succès.",
         "assets/images/zeldaBOTW.jpg")));
   }
 
