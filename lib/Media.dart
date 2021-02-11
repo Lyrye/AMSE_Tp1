@@ -1,4 +1,3 @@
-
 class MediaItem  {
   String name;
 

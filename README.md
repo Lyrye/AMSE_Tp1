@@ -1,16 +1,10 @@
 # mediateque_tp1
 
 Tp1
+# Présentation du projet
+Application de consultations de données. Médiathèque de séries, films et jeux vidéo. 
+Possibilité de mettre les différents médias dans une liste de favoris et de la consulté dans l'onglet "Mes Favoris"
 
-## Getting Started
+# Compilation et execution 
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Après avoir installer flutter sur l'ordinateur, executer la commande flutter create puis flutter run
