@@ -14,7 +14,6 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,10 +21,6 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
 
         primaryColor: Colors.deepPurple[200],
-        accentColor: Colors.orange[50],
-
-        //primarySwatch: Colors.deepOrange.shade50,
-
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(title: 'Mediathèque',),
@@ -47,9 +42,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   static DataBase db = new DataBase();
 
-  static Widget3000 affichageSeries =new Widget3000(list: db.getlistSeries(),list_fav: db.getlistSaved());
-  static Widget3000 affichageGames =new Widget3000(list: db.getlistGames(),list_fav: db.getlistSaved());
-  static Widget3000 affichageFav =new Widget3000(list: db.getlistSaved(),list_fav: db.getlistSaved());
+  static Affichage_list affichageSeries = new Affichage_list(list: db.getlistSeries(),list_fav: db.getlistSaved());
+  static Affichage_list affichageGames = new Affichage_list(list: db.getlistGames(),list_fav: db.getlistSaved());
+  static Affichage_list affichageFav = new Affichage_list(list: db.getlistSaved(),list_fav: db.getlistSaved());
 
 
   static  List<Widget> _widgetOptions = <Widget>[
@@ -105,7 +100,6 @@ class _MyHomePageState extends State<MyHomePage> {
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.white,
         onTap: _onItemTapped,),
-       // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 

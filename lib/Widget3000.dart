@@ -1,24 +1,21 @@
-import 'dart:developer';
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mediateque_tp1/Media.dart';
 
 
-class Widget3000 extends StatefulWidget{
+class Affichage_list extends StatefulWidget{
   final List <MediaItem> list;
   final List <MediaItem> list_fav;
 
-  Widget3000({Key key, @required this.list, this.list_fav}):super (key:key);
+  Affichage_list({Key key, @required this.list, this.list_fav}):super (key:key);
 
   @override
-  _Widget3000State createState() => _Widget3000State();
+  _Affichage_listState createState() => _Affichage_listState();
 
 }
 
-class _Widget3000State extends State<Widget3000> {
-  _Widget3000State(): super();
+class _Affichage_listState extends State<Affichage_list> {
+  _Affichage_listState(): super();
 
   ListView mediaDisplay(MediaItem item) {
     const TextStyle titleStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
@@ -96,25 +93,3 @@ class _Widget3000State extends State<Widget3000> {
     );
   }
 }
-
-
-
-class Description extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Fiche d'information"),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Text('Retour à la liste'),
-        ),
-      ),
-    );
-  }
-}
-
