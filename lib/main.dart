@@ -41,15 +41,13 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-  TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.white) ;
 
   static DataBase db = new DataBase();
 
-  static Affichage_list affichageSeries = new Affichage_list(list: db.getlistSeries(),list_fav: db.getlistSaved());
-  static Affichage_list affichageGames = new Affichage_list(list: db.getlistGames(),list_fav: db.getlistSaved());
-  static Affichage_list affichageFav = new Affichage_list(list: db.getlistSaved(),list_fav: db.getlistSaved());
-  static Affichage_list affichafeFilms = new Affichage_list(list: db.getlistFilms(), list_fav: db.getlistSaved());
+  static AffichageList affichageSeries = new AffichageList(list: db.getlistSeries(),listFav: db.getlistSaved());
+  static AffichageList affichageGames = new AffichageList(list: db.getlistGames(),listFav: db.getlistSaved());
+  static AffichageList affichageFav = new AffichageList(list: db.getlistSaved(),listFav: db.getlistSaved());
+  static AffichageList affichafeFilms = new AffichageList(list: db.getlistFilms(), listFav: db.getlistSaved());
 
 
   static  List<Widget> _widgetOptions = <Widget>[
@@ -69,7 +67,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final List<MediaItem> series= <MediaItem> [];
 
     return Scaffold(
       appBar: AppBar(

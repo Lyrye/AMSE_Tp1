@@ -3,24 +3,24 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:mediateque_tp1/Media.dart';
 
 
-class Affichage_list extends StatefulWidget{
+class AffichageList extends StatefulWidget{
   final List <MediaItem> list;
-  final List <MediaItem> list_fav;
+  final List <MediaItem> listFav;
 
-  Affichage_list({Key key, @required this.list, this.list_fav}):super (key:key);
+  AffichageList({Key key, @required this.list, this.listFav}):super (key:key);
 
   @override
-  _Affichage_listState createState() => _Affichage_listState();
+  _AffichageListState createState() => _AffichageListState();
 
 }
 
-class _Affichage_listState extends State<Affichage_list> {
-  _Affichage_listState(): super();
+class _AffichageListState extends State<AffichageList> {
+  _AffichageListState(): super();
 
   ListView mediaDisplay(MediaItem item) {
     const TextStyle titleStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
     const TextStyle bodyStyle = TextStyle(fontSize: 11);
-    bool alreadySaved = widget.list_fav.contains(item);
+    bool alreadySaved = widget.listFav.contains(item);
 
     return ListView(
       shrinkWrap: true,
@@ -36,9 +36,9 @@ class _Affichage_listState extends State<Affichage_list> {
               onTap: () {
                 setState(() {
                   if (alreadySaved) {
-                    widget.list_fav.remove(item);
+                    widget.listFav.remove(item);
                   } else {
-                    widget.list_fav.add(item);
+                    widget.listFav.add(item);
                   }
                 });
               },
