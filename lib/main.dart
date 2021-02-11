@@ -21,6 +21,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
 
         primaryColor: Colors.deepPurple[200],
+        accentColor: Colors.deepPurple[100],
+
+
+
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(title: 'Mediathèque',),
@@ -45,13 +49,16 @@ class _MyHomePageState extends State<MyHomePage> {
   static Affichage_list affichageSeries = new Affichage_list(list: db.getlistSeries(),list_fav: db.getlistSaved());
   static Affichage_list affichageGames = new Affichage_list(list: db.getlistGames(),list_fav: db.getlistSaved());
   static Affichage_list affichageFav = new Affichage_list(list: db.getlistSaved(),list_fav: db.getlistSaved());
+  static Affichage_list affichafeFilms = new Affichage_list(list: db.getlistFilms(), list_fav: db.getlistSaved());
 
 
   static  List<Widget> _widgetOptions = <Widget>[
     Text("Bienvenue dans votre Médiathèque",textAlign: TextAlign.center, style: GoogleFonts.montserrat(textStyle: TextStyle(fontSize: 40,color: Colors.deepPurple[400]))),
     affichageSeries,
+    affichafeFilms,
     affichageGames,
-    affichageFav
+    affichageFav,
+
   ];
 
   void _onItemTapped(int index) {
@@ -70,7 +77,8 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(child: _widgetOptions.elementAt(_selectedIndex),
       ),
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: BottomNavigationBar  (
+
         items:  <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -80,9 +88,14 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.ondemand_video_rounded ),
-            label: 'Séries & Films',
+            label: 'Séries',
             backgroundColor: Colors.deepPurple[200]
 
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.camera_roll_outlined),
+              label: 'Films',
+              backgroundColor: Colors.deepPurple[200]
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.videogame_asset_outlined),
