@@ -19,12 +19,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-
         primaryColor: Colors.deepPurple[200],
         accentColor: Colors.deepPurple[100],
-
-
-
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(title: 'Mediathèque',),
@@ -65,12 +61,47 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void info (){
+    Navigator.of(context).push(
+        MaterialPageRoute<void>(
+          builder: (BuildContext context){
+            return Scaffold(
+              appBar: AppBar(
+                title: Text("Information", style: GoogleFonts.montserrat(textStyle: TextStyle(fontSize: 20,color: Colors.white))),
+              ),
+              body: Container (
+                alignment: Alignment.bottomRight,
+                child: ListView(
+                  children: [
+                    Text(""),
+                    Text(""),
+                    Text ("Application Médiathèque", textAlign: TextAlign.center, style: GoogleFonts.montserrat(textStyle: TextStyle(fontSize: 30,color: Colors.deepPurple[400]))),
+                    Text(""),
+                    Text(""),
+                    Text ("Médiathèque est une application réalisé en Dart avec Flutter. Elle permet l'accès à des information grâce à 5 onglets: Home, Séries, Films, Jeux Vidéo et Favoris. Il est possible d'ajouter des médias à une liste de favoris consultable dans l'onglet Favoris", textAlign: TextAlign.justify, style: GoogleFonts.montserrat(textStyle: TextStyle(fontSize: 20,color: Colors.deepPurple[200]))),
+                    Text(""),
+                    Text(""),
+                    Text(""),
+                    Text("Réalisé par Lila NICKLER dans le cadre de l'UV AMSE en février 2021",textAlign: TextAlign.justify, style: GoogleFonts.montserrat(textStyle: TextStyle(fontSize: 20,color: Colors.deepPurple[200]))),
+                    Image.asset("assets/enjoy.png"),
+                  ],
+                ),
+              )
+            );
+          }
+        )
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
 
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title, style: GoogleFonts.montserrat(color: Colors.white)),
+        actions: [
+          IconButton(icon: Icon(Icons.info_outline, color: Colors.white), onPressed: info)
+        ],
       ),
       body: Center(child: _widgetOptions.elementAt(_selectedIndex),
       ),
